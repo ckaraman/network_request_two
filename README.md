@@ -4,7 +4,7 @@ Api üzerinden gelen verinin nasıl flutter tarafında  handle edileceği ile il
 
 
 
-#
+# ScreenShot
 ![App Screenshot](https://user-images.githubusercontent.com/41169476/195322587-0d859311-133c-438c-9a63-7036cea5dfc0.png)
 
 
