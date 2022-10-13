@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:network_request_two/constants.dart';
 import 'package:network_request_two/data_service.dart';
 import 'package:network_request_two/models.dart';
 
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: customMaterialColor(const Color(0xff0a192f)),
+        buttonTheme: const ButtonThemeData(
+          buttonColor: Color(0x000a192f),
+        ),
       ),
       home: const MyHomePage(title: 'Network request example'),
     );
@@ -48,12 +52,25 @@ class _MyHomePageState extends State<MyHomePage> {
             if (_response != null)
               Column(
                 children: [
-                  Image.network(_response!.iconUrl),
-                  Text(
-                    '${_response!.tempInfo.temperature}°',
-                    style: const TextStyle(fontSize: 40),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      child: ListTile(
+                        leading: Image.network(_response!.iconUrl),
+                        title: Padding(
+                          padding: const EdgeInsets.only(left: 35),
+                          child: Text(
+                            '${_response!.tempInfo.temperature}°',
+                            style: const TextStyle(fontSize: 40),
+                          ),
+                        ),
+                        subtitle: Padding(
+                          padding: const EdgeInsets.only(left: 40),
+                          child: Text('${_response?.weatherInfo.description}'),
+                        ),
+                      ),
+                    ),
                   ),
-                  Text('${_response?.weatherInfo.description}')
                 ],
               ),
             Padding(
